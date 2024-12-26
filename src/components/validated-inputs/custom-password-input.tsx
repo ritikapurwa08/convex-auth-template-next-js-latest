@@ -76,7 +76,7 @@ const CustomPasswordInput = <T extends FieldValues>({
             {...field}
             disabled={disabled}
             className={cn(
-              "pr-10 rounded-none border-zinc-500",
+              "pr-10 rounded-xl border-opacity-40 border-zinc-500",
               !!Icon && "pl-10",
               className
             )}

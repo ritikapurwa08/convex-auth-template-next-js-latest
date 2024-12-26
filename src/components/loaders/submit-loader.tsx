@@ -29,7 +29,7 @@ const SubmitLoader: React.FC<SubmitLoaderProps> = ({
       type="submit"
       className={twMerge(
         cn(
-          "flex items-center justify-center px-4 py-2 rounded font-semibold transition-colors disabled:cursor-not-allowed",
+          "flex w-full items-center justify-center px-4 py-2 rounded font-semibold transition-colors disabled:cursor-not-allowed",
           loadingState
             ? "bg-blue-500 hover:bg-blue-600 disabled:bg-gray-300 text-white"
             : "bg-blue-500 hover:bg-blue-600 text-white",

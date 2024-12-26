@@ -10,7 +10,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import UserButton from "./userButton";
+
+import { Button } from "../ui/button";
 
 const AuthPage = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -20,7 +21,7 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center py-12">
+    <div className="min-h-screen  bg-gradient-to-tr flex items-center justify-center py-12">
       <Card className="w-full max-w-md mx-4 md:mx-auto shadow-lg">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center">
@@ -45,17 +46,17 @@ const AuthPage = () => {
             </>
           )}
 
-          <UserButton />
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
               {isSignUp ? "Already have an account?" : "Don't have an account?"}{" "}
-              <button
-                onClick={handleToggleForm}
-                className="text-blue-500 hover:underline"
-              >
-                {isSignUp ? "Log In" : "Sign Up"}
-              </button>
             </p>
+            <Button
+              variant="link"
+              onClick={handleToggleForm}
+              className="text-blue-500 hover:underline"
+            >
+              {isSignUp ? "Log In" : "Sign Up"}
+            </Button>
           </div>
         </CardContent>
       </Card>

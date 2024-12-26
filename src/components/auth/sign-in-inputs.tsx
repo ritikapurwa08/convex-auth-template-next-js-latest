@@ -50,7 +50,10 @@ const SignUpInput = () => {
   };
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleSignIn)}>
+      <form
+        className="flex flex-col gap-y-2"
+        onSubmit={form.handleSubmit(handleSignIn)}
+      >
         <CustomInput
           control={form.control}
           name="email"
@@ -73,12 +76,14 @@ const SignUpInput = () => {
             <p className="p-3 rounded-lg ">{error}</p>
           </div>
         )}
-        <SubmitLoader
-          defaultText="Sign In"
-          loadingIcon={LoaderIcon}
-          loadingState={loading}
-          loadingText="Signing in..."
-        />
+        <div className="w-full my-4">
+          <SubmitLoader
+            defaultText="Sign In"
+            loadingIcon={LoaderIcon}
+            loadingState={loading}
+            loadingText="Signing in..."
+          />
+        </div>
       </form>
     </Form>
   );

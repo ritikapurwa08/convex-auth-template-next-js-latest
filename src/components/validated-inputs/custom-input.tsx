@@ -70,7 +70,7 @@ export default function CustomInput<T extends FieldValues>({
             {...field}
             disabled={disabled}
             className={cn(
-              "pr-10 rounded-none border-zinc-500",
+              "pr-10  border-opacity-30 rounded-xl border-zinc-500",
               !!Icon && "pl-10",
               className
             )}

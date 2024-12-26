@@ -8,12 +8,8 @@ import { useRouter } from "next/navigation";
 import { Form } from "../ui/form";
 import CustomPasswordInput from "../validated-inputs/custom-password-input";
 import CustomInput from "../validated-inputs/custom-input";
-import {
-  LoaderIcon,
-  LockIcon,
-  MailIcon,
-  TriangleAlertIcon,
-} from "lucide-react";
+import { LoaderIcon, TriangleAlertIcon } from "lucide-react";
+import { IoIosLock, IoIosMail, IoIosPerson } from "react-icons/io";
 import SubmitLoader from "../loaders/submit-loader";
 
 const SignUpInputs = () => {
@@ -55,13 +51,16 @@ const SignUpInputs = () => {
   };
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleSignUp)}>
+      <form
+        className="flex flex-col gap-y-2"
+        onSubmit={form.handleSubmit(handleSignUp)}
+      >
         <CustomInput
           control={form.control}
           label="Full Name"
           disabled={loading}
           name="name"
-          icon={MailIcon}
+          icon={IoIosPerson}
           placeholder="Enter your name here"
         />
 
@@ -70,6 +69,7 @@ const SignUpInputs = () => {
           name="email"
           label="Email"
           disabled={loading}
+          icon={IoIosMail}
           placeholder="Enter Your Email"
         />
         <CustomPasswordInput
@@ -78,7 +78,7 @@ const SignUpInputs = () => {
           name="password"
           disabled={loading}
           placeholder="Enter Your Password"
-          icon={LockIcon}
+          icon={IoIosLock}
         />
 
         <CustomPasswordInput
@@ -86,7 +86,7 @@ const SignUpInputs = () => {
           label="Confirm Password"
           name="confirmPassword"
           disabled={loading}
-          icon={LockIcon}
+          icon={IoIosLock}
           placeholder="Confirm Your Password"
         />
         {!!error && (
@@ -95,12 +95,14 @@ const SignUpInputs = () => {
             <p className="p-3 rounded-lg ">{error}</p>
           </div>
         )}
-        <SubmitLoader
-          defaultText="Sign up"
-          loadingIcon={LoaderIcon}
-          loadingState={loading}
-          loadingText="Signing up..."
-        />
+        <div className="w-full my-4">
+          <SubmitLoader
+            defaultText="Sign up"
+            loadingIcon={LoaderIcon}
+            loadingState={loading}
+            loadingText="Signing up..."
+          />
+        </div>
       </form>
     </Form>
   );
